@@ -4,6 +4,6 @@ using namespace std;
 
 int main()
 {
-    polynomial a("6x + 34 - 12x^2 +x^3");
+    polynomial a("0x^2+10");
     cout << a << endl;
 }

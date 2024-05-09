@@ -75,8 +75,12 @@ array::array(string s) {
             else
                 coeff = stoi(term);
         }
-        else
-            coeff = 1;
+        else {
+            if (term[0] == '+')
+                coeff = 1;
+            if (term[0] == '-')
+                coeff = -1;
+        }
 
         A[degree] = coeff;
     }
@@ -160,6 +164,8 @@ for (j = other.N-1; j >= 0; j--)
 
 ostream& operator<<(ostream &os, const polynomial &p)
 {
+    if (p.A[p.N-1] < 0)
+        os << "-";
     for (i = p.N-1; i >= 0; i--)
     {
         if(p.A[i]!=0)
@@ -167,10 +173,10 @@ ostream& operator<<(ostream &os, const polynomial &p)
             if(p.A[i]!=1&&p.A[i]!=-1||i==0)
                 os << p.A[i];
 
-            if(i>=2)
+            else if(i>=2)
                 os << "x^" << i;
 
-            if(i==1)
+            else if(i==1)
                 os << "x";
         }
 
