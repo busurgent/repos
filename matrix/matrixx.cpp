@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
-#include <ctime>
 #include "matrixx.h"
 #include "indices.h"
 using namespace std;
@@ -41,13 +40,13 @@ matrix::matrix(const matrix &other)
 }
 matrix::~matrix()
 {
-    for(i=0;i<Ny;i++)
+    for(i=0;i<Nx;i++)
         delete[] A[i];
         delete[] A;
 }
 matrix& matrix::operator=(const matrix &other)
 {
-    for(i=0;i<Ny;i++)
+    for(i=0;i<Nx;i++)
         delete[] A[i];
         delete[] A;
     this->Nx = other.Nx;
